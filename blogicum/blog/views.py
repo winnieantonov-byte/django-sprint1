@@ -52,7 +52,7 @@ def category_posts(request, category_slug):
 
 def index(request):
     template = 'blog/index.html'
-    context = {'posts': posts}
+    context = {'posts': reversed(posts)}
     return render(request, template, context)
 
 

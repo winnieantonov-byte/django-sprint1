@@ -3,39 +3,22 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Блогикум{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="icon" href="img/fav/favicon.ico" type="image">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #7fb8e1;">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center text-dark fw-bold" href="{% url 'blog:index' %}">
-                    <img src="{% static 'img/logo.png' %}" width="30" height="30" class="me-2" alt="Логотип">
-                    Блогикум
-                </a>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active bg-primary text-white rounded px-3" href="{% url 'blog:index' %}">Лента записей</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-6 text-dark fs-5" href="{% url 'pages:about' %}">О проекте</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-6 text-dark fs-5" href="{% url 'pages:rules' %}">Наши правила</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main class="container py-5">
-        {% block content %}
-        {% endblock %}
+    {% include 'includes/header.html' %}
+    <main>
+        <div class="container py-5">
+        {% block content %}{% endblock %}
+        </div>
     </main>
-    <footer class="container py-3 border-top">
-        <p>© 2026 Блогикум</p>
-    </footer>
+    {% include 'includes/footer.html' %}
 </body>
 </html>

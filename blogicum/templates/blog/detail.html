@@ -1,14 +1,9 @@
 {% extends "base.html" %}
 
-{% load static %}
-
-{% block title %} {{ post.title }} | Блогикум {% endblock %}
+{% block title %} Наши правила | Блогикум {% endblock %}
 
 {% block content %}
-        <h1>{{ post.title }}</h1>
+        <h1>Наши правила</h1>
         <p><b>Категория:</b> {{ post.category }}</p>
-            {{ post.text }}
-        <footer class="text-center py-4 mt-5">
-            <p>© Блогикум</p>
-        </footer>
+            {{ post.text|linebreaks }}
 {% endblock %}

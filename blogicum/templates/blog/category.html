@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
+{% block title %} Категории | Блогикум {% endblock %}
+
 {% block content %}
   <h1>Публикации в категории — {{ category_slug }}</h1>
+<ul>
+  {% for post in post_list %}
   <hr>
-  
-  <ul>
-    {% for post in post_list %}
-      <li>
-        <a href="{% url 'blog:post_detail' post.id %}">
-          {{ post.title }}
-        </a>
-      </li>
-    {% empty %}
-      <li>В этой категории пока нет публикаций.</li>
-    {% endfor %}
-  </ul>
+    <li>
+      <a href="{% url 'blog:post_detail' post.id %}">
+        {{ post.title }}
+      </a>
+    </li>
+  </hr>
+  {% endfor %}
+</ul>
 {% endblock %}

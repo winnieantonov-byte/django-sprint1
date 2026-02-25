@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %} Наши правила | Блогикум {% endblock %}
+{% block title %} Остров отчаянья. 25 октября 1659 года {% endblock %}
 
 {% block content %}
         <h1>Наши правила</h1>
-        <p><b>Категория:</b> {{ post.category }}</p>
+        <ul>
+            <li><b>Категория:</b> {{ post.category }}</li>
+        </ul>
             {{ post.text|linebreaks }}
 {% endblock %}

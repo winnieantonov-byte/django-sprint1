@@ -1,6 +1,5 @@
-from django.shortcuts import render
-
 from django.http import Http404
+from django.shortcuts import render
 
 posts = [
     {
@@ -44,6 +43,7 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
+posts_dict = {post['id']: post for post in posts}
 
 
 def category_posts(request, category_slug):
@@ -56,6 +56,7 @@ def index(request):
 
 
 def post_detail(request, post_id):
-    if posts is None:
+    post = posts_dict.get(post_id)
+    if post is None:
         raise Http404("Пост с таким ID не найден")
-    return render(request, 'blog/detail.html', {'post': posts[post_id]})
+    return render(request, 'blog/detail.html', {'post': post})

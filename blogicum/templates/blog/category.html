@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %} Категории | Блогикум {% endblock %}
+{% block title %} Публикации в категории personal {% endblock %}
 
 {% block content %}
   <h1>Публикации в категории — {{ category_slug }}</h1>
-<ul>
-  {% for post in post_list %}
+{% for post in post_list %}
   <hr>
     <li>
       <a href="{% url 'blog:post_detail' post.id %}">
@@ -13,6 +12,5 @@
       </a>
     </li>
   </hr>
-  {% endfor %}
-</ul>
+{% endfor %}
 {% endblock %}

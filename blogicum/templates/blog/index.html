@@ -3,21 +3,20 @@
 {% block title %} Лента записей {% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Лента записей</h1>
+  <h1 class="mb-4">Лента записей</h1>
 
-{% for post in posts %}
-<hr>
-  <article class="mb-4">
-    <ul>
-      <li><b>Место:</b> {{ post.location }}</li>
-      <li><b>Дата:</b> {{ post.date }}</li>
-      <li><b>Категория:</b> <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a></li>
-    </ul>
+  {% for post in posts %}
+    <hr>
+    <article>
+      <ul>
+        <li><b>Место:</b> {{ post.location }}</li>
+        <li><b>Дата:</b> {{ post.date }}</li>
+        <li><b>Категория:</b> <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a></li>
+      </ul>
       
-    <p>{{ post.text|truncatechars:50 }}</p>
+      <p>{{ post.text|truncatechars:50 }}</p>
       
-    <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
-  </article>
-</hr>
-{% endfor %}
+      <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
+    </article>
+  {% endfor %}
 {% endblock %}

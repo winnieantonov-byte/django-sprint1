@@ -43,7 +43,7 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
-posts_dict = {post['id']: post for post in posts}
+posts_by_id = {post['id']: post for post in posts}
 
 
 def category_posts(request, category_slug):
@@ -56,7 +56,7 @@ def index(request):
 
 
 def post_detail(request, post_id):
-    post = posts_dict.get(post_id)
-    if post is None:
+    post = posts_by_id.get(post_id)
+    if not post:
         raise Http404("Пост с таким ID не найден")
     return render(request, 'blog/detail.html', {'post': post})
